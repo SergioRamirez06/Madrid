@@ -1,0 +1,194 @@
+if (!window.I18n) window.I18n = {};
+
+window.I18n.view_more_videos = "Más videos";
+
+window.VALIDATION_PARAMS = {
+    oops: "Ups!",
+    title: "Ha habido los siguientes errores",
+    messages: {
+        required: "Este campo es obligatorio.",
+        remote: "Por favor, corrige este campo.",
+        email: "Por favor, comprueba el e-mail.",
+        url: "Por favor, introduce una URL válida.",
+        date: "Por favor, introduce una fecha válida.",
+        formated_date: "Por favor, introduce una fecha válida.",
+        dateISO: "Please enter a valid date (ISO).",
+        number: "Por favor, introduce un número válido.",
+        digits: "Sólo dígitos.",
+        creditcard: "Introduce un número de tarjeta válido.",
+        equalTo: "Los campos deben de ser iguales.",
+        maxlength: $.validator.format("Como máximo {0} caracteres."),
+        minlength: $.validator.format("Como mínimo {0} caracteres."),
+        rangelength: $.validator.format("Introduce un valor de entre {0} y {1} caracteres."),
+        range: $.validator.format("Introduce un valor entre {0} y {1}."),
+        max: $.validator.format("Introduce un valor igual o menor a {0}."),
+        min: $.validator.format("Introduce un valor mayor o igual a {0}."),
+        matches: "Los campos deben de coincidir.",
+        require_from_group: $.validator.format("Selecciona por lo menos {0} elemento."),
+        id_format: $.validator.format("introduce un <span>{0}</span> válido."),
+        dni: "Introduce un DNI válido.",
+        nie: "Introduce un NIE válido.",
+        pass: "Introduce un pasaporte válido.",
+        telephone: "Introduce un teléfono válido.",
+        photo_code: "El formato debe contener 8 caracteres.",
+        edad_registro: "Debes tener al menos 14 años para registrarte.",
+        tour_visitors: "El grupo mínimo son de 20 personas.",
+        schedule: "Debes seleccionar una hora.",
+         lettersonly: "Sólo se permiten letras."
+    }
+}
+
+var theLanguage = $('html').attr('lang');
+
+if (theLanguage != "es") {
+    jQuery.extend(window.VALIDATION_PARAMS, {
+        oops: "Ups!",
+        title: "There have been the following errors",
+        messages: {
+            required: "This field is required.",
+            remote: "Please fix this field.",
+            email: "Please enter a valid email address.",
+            url: "Please enter a valid URL.",
+            date: "Please enter a valid date.",
+            dateISO: "Please enter a valid date (ISO).",
+            number: "Please enter a valid number.",
+            digits: "Please enter only digits.",
+            creditcard: "Please enter a valid credit card number.",
+            equalTo: "Please enter the same value again.",
+            accept: "Please enter a value with a valid extension.",
+            maxlength: jQuery.validator.format("Please enter no more than {0} characters."),
+            minlength: jQuery.validator.format("Please enter at least {0} characters."),
+            rangelength: jQuery.validator.format("Please enter a value between {0} and {1} characters long."),
+            range: jQuery.validator.format("Please enter a value between {0} and {1}."),
+            max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
+            min: jQuery.validator.format("Please enter a value greater than or equal to {0}."),
+            matches: "The fields must match.",
+            require_from_group: $.validator.format("Select at least {0} elements."),
+            id_format: $.validator.format("Enter a valid <span>{0}</span>."),
+            dni: "Enter a valid DNI.",
+            nie: !"Enter a valid NIE.",
+            pass: "Enter a valid passport number.",
+            telephone: "Enter a valid phone number.",
+            photo_code: "The format must contain 8 characters.",
+            edad_registro: "You must be at least 14 years old to register.",
+            tour_visitors: "At least 20 persons per group.",
+            schedule: "You must select a time."
+        }
+    });
+};
+
+window.SCHEDULE_PARAMS = {
+    start_week_at: 0,
+    dow: {
+        es: ['LUN', 'MAR', 'MIÉ', 'JUE', 'VIE', 'SÁB', 'DOM'],
+        en: ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
+        fr: ['LUN', 'MAR', 'MER', 'JEU', 'VEN', 'SAM', 'DIM'],
+        pt: ['SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SÁB', 'DOM'],
+        ja: ['日', '月', '火', '水', '木', '金', '土'],
+        id: ['SEN', 'SEL', 'RAB', 'KAM', 'JUM', 'SAB', 'MIN'],
+        zh: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+        ar: ['السبت','الأحد','الإثنين','الثلاثاء','الأربعاء','الخميس','الجمعة'],
+        de: ['MO', 'DI', 'MI', 'DO', 'FR', 'SA', 'SO'],
+        hi: ['सोम', 'मंगल', 'बुध', 'गुरु', 'शुक्र', 'शनि', 'रवि']
+    }
+}
+
+window.NAV_PARAMS = {
+    select: "Selecciona"
+}
+
+moment.updateLocale('es', {
+    months: "enero_febrero_marzo_abril_mayo_junio_julio_agosto_septiembre_octubre_noviembre_diciembre".split("_"),
+    monthsShort: "ene_feb_mar_abr_may_jun_jul_ago_sep_oct_nov_dic".split("_"),
+    weekdays: "domingo_lunes_martes_miércoles_jueves_viernes_sábado".split("_"),
+    weekdaysShort: "dom._lun._mar._mié._jue._vie._sáb.".split("_"),
+    weekdaysMin: "Do_Lu_Ma_Mi_Ju_Vi_Sá".split("_"),
+    longDateFormat: {
+        LT: "H:mm",
+        L: "DD/MM/YYYY",
+        LL: "D [de] MMMM [de] YYYY",
+        LLL: "D [de] MMMM [de] YYYY LT",
+        LLLL: "dddd, D [de] MMMM [de] YYYY LT"
+    },
+    calendar: {
+        sameDay: function() {
+            return '[hoy a la' + ((this.hours() !== 1) ? 's' : '') + '] LT';
+        },
+        nextDay: function() {
+            return '[mañana a la' + ((this.hours() !== 1) ? 's' : '') + '] LT';
+        },
+        nextWeek: function() {
+            return 'dddd [a la' + ((this.hours() !== 1) ? 's' : '') + '] LT';
+        },
+        lastDay: function() {
+            return '[ayer a la' + ((this.hours() !== 1) ? 's' : '') + '] LT';
+        },
+        lastWeek: function() {
+            return '[el] dddd [pasado a la' + ((this.hours() !== 1) ? 's' : '') + '] LT';
+        },
+        sameElse: 'L'
+    },
+    relativeTime: {
+        future: "en %s",
+        past: "hace %s",
+        s: "unos segundos",
+        m: "un minuto",
+        mm: "%d minutos",
+        h: "una hora",
+        hh: "%d horas",
+        d: "un día",
+        dd: "%d días",
+        M: "un mes",
+        MM: "%d meses",
+        y: "un año",
+        yy: "%d años"
+    },
+    ordinal: '%dº',
+    week: {
+        dow: 1, // Monday is the first day of the week.
+        doy: 4 // The week that contains Jan 4th is the first week of the year.
+    }
+});
+
+window.QUIZ_PARAMS = {
+    btn_start: {
+        es: "Iniciar",
+        en: "Start",
+        fr: "Commencer",
+        id: "Start",
+        pt: "Iniciar",
+        ar: "البداية",
+        zh: "开始",
+        ja: "スタート"
+    },
+    btn_restart: {
+        es: "Reiniciar",
+        en: "Restart",
+        fr: "Recommencer",
+        id: "Restart",
+        pt: "Reiniciar",
+        ar: "بدأ مجدداً",
+        zh: "重新开始",
+        ja: "再スタート"
+    },
+    str_success: {
+        es: "Has acertado {{=q_right}} preguntas de {{=q_total}}",
+        en: "You've answered {{=q_right}} of {{=q_total}} questions correctly",
+        fr: "Tu as trouvé {{=q_right}} sur temps {{=q_total}} de condition",
+        id: "Anda benar {{=q_right}} pertanyaan {{=q_total}}",
+        pt: "Acertaste {{=q_right}} perguntas de {{=q_total}}",
+        ar: "أجبت بنجاح عن {{=q_total}} سؤالاً من {{=q_right}}",
+        zh: "你答对 {{=q_right}} 道问题，共有 {{=q_total}} 道问题",
+        ja: "{{=q_right}}の質問の{{=q_total}}に正しく回答しました"
+    },
+    str_fail: {
+        es: "Has acertado {{=q_right}} preguntas de {{=q_total}}. Vuelve a intentarlo",
+        en: "You've answered {{=q_right}} of {{=q_total}} questions correctly. Try again",
+        fr: "Tu as trouvé {{=q_right}} sur temps {{=q_total}} de condition Recommencez",
+        id: "Anda benar {{=q_right}} pertanyaan {{=q_total}}. Cobalah sekali lagi",
+        pt: "Acertaste {{=q_right}} perguntas de {{=q_total}}. Volta a tentar",
+        ar: "أجبت بنجاح عن {{=q_total}} سؤالاً من {{=q_right}}. حاول مرة أخرى",
+        zh: "你答对 {{=q_right}} 道问题，共有 {{=q_total}} 道问题。重试",
+        ja: "{{=q_right}}の質問の{{=q_total}}に正しく回答しました。 やり直してください"
+    }
+}
